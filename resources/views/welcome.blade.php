@@ -81,18 +81,18 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    TCSE Eyes
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ url('/') }}">Home</a>
+                    <a href="{{ url('/dashboard') }}">Dashboard</a>
+                    <a href="{{ url('/ioc-investigation') }}">Investigation</a>
+                    <a href="{{ url('/ioc-duplicates') }}">Duplicate IOCs</a>
+                    <a href="{{ url('/ioc-hidden') }}">Hidden/Ignored IOCs</a>
+                    <a href="{{ url('/ioc-details') }}">IOC Details</a>
+                    <a href="{{ url('/ioc-summary') }}">Testing Summary</a>
+                    <a href="{{ url('/ioc-publishing') }}">Publishing</a>
                 </div>
             </div>
         </div>
