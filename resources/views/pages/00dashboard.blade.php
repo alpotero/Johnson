@@ -17,7 +17,7 @@
                         <th>Published Date (PST)</th>
                         <th>Link</th>
                         <th>RSS Source</th>
-                        <th>Date Created (GMT+8)</th>
+                        <th>Date Created (UTC 0)</th>
                         <th>Status</th>
                     </tr>
                 </thead>

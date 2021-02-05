@@ -48,3 +48,8 @@ Route::get('/ioc-summary', function () {
 Route::get('/ioc-publishing', function () {
     return view('pages.06publishing');
 });
+
+
+/////////////////// Model Database
+Route::resource('posts', 'PostsController');
+Route::resource('tblBlogs', 'tblBlogsController');

@@ -36,9 +36,9 @@
         $pid = $blog['pid'];
         $sourcetype = $blog['source_type'];
         $blogid = $blog['blog_id'];
-        $title = str_replace(array("#", "'", ";", "$"), '', $blog['title']);
+        $title = str_replace(array("#", "'", ";", "$", "\"", "="), '', $blog['title']);
         $summary = '';
-        $author = str_replace(array("#", "'", ";", "$"), '', $blog['author']);
+        $author = str_replace(array("#", "'", ";", "$", "\"", "="), '', $blog['author']);
         $rawpublisheddate = strtotime($blog['published_date']);
         //$publisheddate = date('D, d M Y H:i:s',$rawpublisheddate);
         $publisheddate = date('Y-m-d H:i:s', $rawpublisheddate);
@@ -60,17 +60,17 @@
         echo "<br>";
 
         //Check if IOC id is already on db.
-        $sqlcheck = "SELECT `pid` FROM `tbl_blog` WHERE `pid`='$pid'";
+        $sqlcheck = "SELECT `blog_id` FROM `tbl_blogs` WHERE `blog_id`='$blogid'";
         $sqlcheckresult = $conn->query($sqlcheck);
         
         if (!empty($sqlcheckresult) && $sqlcheckresult->num_rows > 0) {
             //If already on db, skip this record.
             while($sqlcheckrow = $sqlcheckresult->fetch_assoc()) {
-                echo "PID: " . $sqlcheckrow["pid"]. " already exists in the db, skipping... </br>";
+                echo "Blog ID: " . $sqlcheckrow["blog_id"]. " already exists in the db, skipping... </br>";
             }
         } else {
             //If not yet on db, push to database for storage.
-            $sqlpush = "INSERT INTO `tbl_blog`(`pid`, `source_type`, `blog_id`, `title`, `author`, `published_date`, `link`, `rss_source`, `date_created`) VALUES ('$pid','$sourcetype','$blogid','$title','$author','$publisheddate','$link','$rsssource','$datecreated')";
+            $sqlpush = "INSERT INTO `tbl_blogs`(`pid`, `source_type`, `blog_id`, `title`, `author`, `published_date`, `link`, `rss_source`, `date_created`) VALUES ('$pid','$sourcetype','$blogid','$title','$author','$publisheddate','$link','$rsssource','$datecreated')";
             
             if ($conn->query($sqlpush) === TRUE) {
             echo "==>Pushed to DB successfully</br>";
@@ -92,6 +92,6 @@
         echo "Db connection is already closed: ". $e->getMessage();
     }
 
-    header("Location: ../dashboard");
+    //header("Location: ../dashboard");
     exit();
 ?>
