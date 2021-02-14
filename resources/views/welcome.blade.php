@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="{{ url('/') }}">Home</a>
-                    <a href="{{ url('/dashboard') }}">Dashboard</a>
+                    <a href="{{ url('/dashboard-prima') }}">Dashboard</a>
                     <a href="{{ url('/ioc-investigation') }}">Investigation</a>
                     <a href="{{ url('/ioc-duplicates') }}">Duplicate IOCs</a>
                     <a href="{{ url('/ioc-hidden') }}">Hidden/Ignored IOCs</a>

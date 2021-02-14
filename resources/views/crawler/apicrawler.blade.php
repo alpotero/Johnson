@@ -17,8 +17,8 @@
     ///// PRODUCTION
     //$url = 'http://localhost/'. date("m/d/Y");
     ///// STAGING
-    $url = 'https://pastebin.com/raw/N86J2u9t';
-    $file_name = "data/tbl-blog-orig.json";
+    $url = 'https://pastebin.com/raw/Bx7Qx7Vh';
+    $file_name = "data/tbl-blog-today.json";
     echo "Downloading IOC file from API...</br>";
     if(file_put_contents( $file_name,file_get_contents($url))) { 
         echo "File downloaded.</br>"; 
@@ -28,7 +28,7 @@
     echo "</br></br></br>";
 
     //Load and decode json to php var
-    $alltblblogtoday = json_decode(file_get_contents("data/tbl-blog-orig.json"), true);
+    $alltblblogtoday = json_decode(file_get_contents("data/tbl-blog-today.json"), true);
     //print_r($alltblblogtoday);
 
     //Enumerage each json element and prep to php var for db insertion
@@ -60,7 +60,8 @@
         echo "<br>";
 
         //Check if IOC id is already on db.
-        $sqlcheck = "SELECT `blog_id` FROM `tbl_blogs` WHERE `blog_id`='$blogid'";
+        //$sqlcheck = "SELECT `blog_id` FROM `tbl_blogs` WHERE `blog_id`='$blogid'";
+        $sqlcheck = "SELECT `blog_id` FROM `blogs` WHERE `blog_id`='$blogid'";
         $sqlcheckresult = $conn->query($sqlcheck);
         
         if (!empty($sqlcheckresult) && $sqlcheckresult->num_rows > 0) {
@@ -70,7 +71,8 @@
             }
         } else {
             //If not yet on db, push to database for storage.
-            $sqlpush = "INSERT INTO `tbl_blogs`(`pid`, `source_type`, `blog_id`, `title`, `author`, `published_date`, `link`, `rss_source`, `date_created`) VALUES ('$pid','$sourcetype','$blogid','$title','$author','$publisheddate','$link','$rsssource','$datecreated')";
+            //$sqlpush = "INSERT INTO `tbl_blogs`(`pid`, `source_type`, `blog_id`, `title`, `author`, `published_date`, `link`, `rss_source`, `date_created`, `hidden`, `testing_status`) VALUES ('$pid','$sourcetype','$blogid','$title','$author','$publisheddate','$link','$rsssource','$datecreated','0','None')";
+            $sqlpush = "INSERT INTO `blogs`(`pid`, `source_type`, `blog_id`, `title`, `author`, `published_date`, `link`, `rss_source`, `date_created`, `hidden`, `testing_status`) VALUES ('$pid','$sourcetype','$blogid','$title','$author','$publisheddate','$link','$rsssource','$datecreated','0','None')";
             
             if ($conn->query($sqlpush) === TRUE) {
             echo "==>Pushed to DB successfully</br>";
@@ -92,6 +94,6 @@
         echo "Db connection is already closed: ". $e->getMessage();
     }
 
-    //header("Location: ../dashboard");
+    header("Location: ../blogs");
     exit();
 ?>

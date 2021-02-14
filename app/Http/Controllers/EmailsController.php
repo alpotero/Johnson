@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\tblBlog;
 
-class tblBlogsController extends Controller
+class EmailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class tblBlogsController extends Controller
      */
     public function index()
     {
-        // Show all records from tblBlogs
-        $tblBlogs = tblBlog::all();
-        return view('pages.00dashboard')->with('tblBlogs', $tblBlogs);
+        //
     }
 
     /**

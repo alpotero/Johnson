@@ -28,14 +28,24 @@
     </head>
     <body class="pt-11">
         <div data-role="appbar" data-expand-point="md" class="bg-crimson fg-white" style="border:1 solid black !important;">
-            <a href="index.php" class="brand no-hover">
+            <a href="/" class="brand no-hover">
                 <span style="width: auto;" class="p-2 border bd-dark border-radius">
                     <sub class="mif-eye mif-5x fb-black"></sub>&nbsp; TCSE Eyes
                 </span>
             </a>
 
-            <ul class="app-bar-menu" style="display:inline; float:left;">
-                <li><a href="{{ url('/dashboard-prima') }}"><strong>Dashboard</strong></a></li>
+            <ul class="app-bar-menu">
+                <li>
+                    <a href="{{ url('/dashboard-prima') }}" class="dropdown-toggle"><strong>Dashboard</strong></a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li class="bg-crimson fg-white"><a href="/dashboard-prima">All Blogs</a></li>
+                        <li class="bg-crimson fg-white"><a href="/iocs">All IOC</a></li>
+                        <li class="bg-crimson fg-white"><a href="/files">All Files</a></li>
+                        <li class="bg-crimson fg-white"><a href="/urls">All URLs</a></li>
+                        <li class="bg-crimson fg-white"><a href="/emails">All Emails</a></li>
+                        <li class="bg-crimson fg-white"><a href="/domains">All Domains</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ url('/ioc-investigation') }}"><strong>Investigation</strong></a></li>
                 <li><a href="{{ url('/ioc-duplicates') }}"><strong>Duplicate IOCs</strong></a></li>
                 <li><a href="{{ url('/ioc-hidden') }}"><strong>Hidden IOCs</strong></a></li>
@@ -50,10 +60,6 @@
                     </ul>
                 </li>
             </ul>
-
-            <div>
-                
-            </div>
         </div>
         <div id="particles-js" style="position:fixed; top:0; z-index:-100; height:100%; width:100%; opacity:0.4;"></div>
 

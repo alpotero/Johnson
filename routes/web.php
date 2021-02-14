@@ -53,3 +53,10 @@ Route::get('/ioc-publishing', function () {
 /////////////////// Model Database
 Route::resource('posts', 'PostsController');
 Route::resource('tblBlogs', 'tblBlogsController');
+
+Route::resource('blogs', 'BlogsController');
+Route::resource('iocs', 'IocsController');
+Route::resource('files', 'FilesController');
+Route::resource('urls', 'UrlsController');
+Route::resource('emails', 'EmailsController');
+Route::resource('domains', 'DomainsController');
