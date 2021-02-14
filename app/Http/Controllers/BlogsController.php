@@ -30,6 +30,7 @@ class BlogsController extends Controller
         // Then move to the targe view and properly display the data from the $blogs variable.
 
         // Return the index page together with data from Blog table from data base order by "date_created" desc
+        //Blog::orderBy('published_date', 'desc')->get();
         $blogs = Blog::orderBy('published_date', 'desc')->get();
         return view('pages.blogs.index')->with('blogs', $blogs);
 

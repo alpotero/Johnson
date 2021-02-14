@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ioc;
 
 class IocsController extends Controller
 {
@@ -13,7 +14,9 @@ class IocsController extends Controller
      */
     public function index()
     {
-        //
+        // Return the index page together with data from Blog table from data base order by "date_created" desc
+        $iocs = Ioc::orderBy('created_at', 'asc')->get();
+        return view('pages.iocs.index')->with('iocs', $iocs);
     }
 
     /**

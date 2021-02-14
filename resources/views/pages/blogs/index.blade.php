@@ -14,7 +14,7 @@
                         <th data-sortable="true" class="text-center va-top">Src Type</th>
                         <th data-sortable="true" class="text-center va-top">Blog ID</th>
                         <th data-sortable="true" class="text-center va-top">Title</th>
-                        <th data-sortable="true" class="text-center va-top" style="width:10px !important;">Author</th>
+                        <th data-sortable="true" class="text-center va-top">Author</th>
                         <th data-sortable="true" class="text-center va-top">Published Date </br>(PST)</th>
                         <th data-sortable="true" class="text-center va-top">Link</th>
                         <th data-sortable="true" class="text-center va-top">RSS Source</th>

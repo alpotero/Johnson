@@ -77,13 +77,13 @@
                             <tbody>
                                 <tr>
                                     <td>98</td>
-                                    <td>SHA256</td>
+                                    <td>File</td>
                                     <td>26af537c457c954dfc667f67f76909fa90889b14cb6736a7678c6eb59cbf951b</td>
                                     <td>1</td>
                                 </tr>
                                 <tr>
                                     <td>116</td>
-                                    <td>SHA256</td>
+                                    <td>File</td>
                                     <td>276baecaef6ead3a6be0c37c7b9c40133ea0386e6a7540e58bce5b08448c3d70</td>
                                     <td>2</td>
                                 </tr>

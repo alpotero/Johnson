@@ -17,6 +17,7 @@ class CreateIocsTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('pid')->nullable();
+            $table->string('ioc_type', 10)->nullable();
             $table->string('ioc')->nullable()->comment('SHA1, SHA256, MD5, Email, Domain, IP, URL');
             $table->bigInteger('page')->nullable();
             $table->string('related_blog_id')->nullable()->comment('This value is connected to blog_id in table Blogs');
