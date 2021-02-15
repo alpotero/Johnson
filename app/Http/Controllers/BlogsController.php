@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use DB;
 
 class BlogsController extends Controller
 {
@@ -41,6 +42,33 @@ class BlogsController extends Controller
         // Return the index page together with data from Blog table from data base with WHERE condition that is LIKE
         //$blogs = Blog::where('title', 'LIKE', '%new%')->get();
         //return view('pages.blogs.index')->with('blogs', $blogs);
+
+        // Use pure SQL query without relying on builtin function of laravel models.
+        // First call the DB library. ***line 7: use DB;
+        // This is commonly used if you are not comftable with Eloquent. But Eloquent is much nicer
+        //$blogs = DB::select('SELECT * FROM blogs');
+        //return view('pages.blogs.index')->with('blogs', $blogs);
+
+        // Return the index page together with data from Blog table from data base order by "date_created" desc. Limit the query to a specific number.
+        // Taking 10 records only for example
+        //$blogs = Blog::orderBy('published_date', 'desc')->take(10)->get();
+        //return view('pages.blogs.index')->with('blogs', $blogs);
+        
+        // Return the index page together with data from Blog table from data base order by "date_created" desc. With pagination of 5 records each.
+        // Add the following pagination string on the view: {{ $blog->link() }}. Add it below the @endforeach
+        // @if(count($blogs) > 0)
+        //      @foreach($blogs as $blog)
+        //          {{ $blog->id }}
+        //      @endforeach
+        //      {{ $blog->links() }}
+        // @else
+        //      <p>No blogs found</p>
+        // @endif
+        //$blogs = Blog::orderBy('published_date', 'desc')->paginate(5)->get();
+        //return view('pages.blogs.index')->with('blogs', $blogs);
+
+
+
     }
 
     /**
