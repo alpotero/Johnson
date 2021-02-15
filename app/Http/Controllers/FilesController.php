@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\File;
 
 class FilesController extends Controller
 {
@@ -13,7 +14,10 @@ class FilesController extends Controller
      */
     public function index()
     {
-        //
+        //return File::orderBy('created_at', 'desc')->get();
+        $files = File::orderBy('created_at', 'desc')->get();
+        return view('pages.files.index')->with('files', $files);
+
     }
 
     /**

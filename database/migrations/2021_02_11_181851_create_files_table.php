@@ -25,6 +25,7 @@ class CreateFilesTable extends Migration
             $table->mediumText('notes')->nullable()->comment('Engr/User supplied');
             $table->dateTime('last_query')->nullable();
             $table->dateTime('first_seen')->nullable();
+            $table->string('download_available', 5)->default('No')->nullable()->comment('Yes or No');
             $table->string('created_by')->default('eyes_automation')->nullable();
             $table->string('last_modified')->nullable();
             $table->timestamps();
