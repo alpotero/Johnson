@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Url;
 
 class UrlsController extends Controller
 {
@@ -14,6 +15,8 @@ class UrlsController extends Controller
     public function index()
     {
         //
+        $urls = Url::orderBy('created_at', 'desc')->get();
+        return view('pages.urls.index')->with('urls', $urls);
     }
 
     /**
