@@ -1,10 +1,9 @@
 @extends('layouts.metrolayout')
 
 @section('content')
-
     <div class="container-fluid">
         <br>
-        <h1>All IOCs</h1>
+        <h1>All IOCs:URLs</h1>
         <div>
             <table class="table table-border cell-border subcompact striped row-hover" data-role="table" data-rows="15" data-rows-steps="15, 30, 50, 100" data-horizontal-scroll="true">
                 <thead>

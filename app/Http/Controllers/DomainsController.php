@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Domain;
 
 class DomainsController extends Controller
 {
@@ -14,6 +15,9 @@ class DomainsController extends Controller
     public function index()
     {
         //
+        $domains = Domain::orderBy('created_at', 'desc')->get();
+        return view('pages.domains.index')->with('domains', $domains);
+
     }
 
     /**

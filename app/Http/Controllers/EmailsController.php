@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Email;
 
 class EmailsController extends Controller
 {
@@ -14,6 +15,8 @@ class EmailsController extends Controller
     public function index()
     {
         //
+        $emails = Email::orderBy('created_at', 'desc')->get();
+        return view('pages.emails.index')->with('emails', $emails);
     }
 
     /**
