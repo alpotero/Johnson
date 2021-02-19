@@ -64,7 +64,6 @@
         <div id="particles-js" style="position:fixed; top:0; z-index:-100; height:100%; width:100%; opacity:0.4;"></div>
 
 
-
         @yield('content')
 
 
@@ -72,6 +71,10 @@
         <script src="{{ asset('js/metro.min.js') }}"></script>
         <script src="{{ asset('js/particles.min.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script>
+            CKEDITOR.replace( 'article-ckeditor' );
+        </script>
     </body>
 </html>
 

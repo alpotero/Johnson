@@ -18,7 +18,8 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
-                        <td>{{ $post->body }}</td>
+                        <!-- <td>{{ $post->body }}</td> -->
+                        <td>{!! $post->body !!}</td> <!-- This will support html parsing for CKEditor input -->
                         <td>{{ $post->created_at }}</td>
                         <td>{{ $post->updated_at }}</td>
                     </tr>
@@ -30,6 +31,8 @@
             @endif
         </tbody>
     </table>
+    <br>
+    <a href="/posts/create" class="button primary rounded ml-1">Create Post</a>
 
 
 

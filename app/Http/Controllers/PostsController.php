@@ -26,6 +26,7 @@ class PostsController extends Controller
     public function create()
     {
         //
+        return view('posts.create');
     }
 
     /**
@@ -36,7 +37,21 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the passed inputs
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+        // Validation error messages are stored in pages.inc.messages then is included in the posts.create page ( @include('inc.messages') )
+
+        // Create Post and submit to database.
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        //Then Redirect to landing page with a message
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
