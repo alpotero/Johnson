@@ -7,7 +7,7 @@
 @endif
 
 @if(session('success'))
-    <div class="remark alert">
+    <div class="remark success">
         {{ session('success') }}
     </div>
 @endif

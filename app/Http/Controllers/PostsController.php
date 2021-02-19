@@ -73,7 +73,10 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        // get the id from the passed url.
+        $post = Post::find($id);
+        //return Post::find($id);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -85,7 +88,22 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Request is similar to store.
+        // Validate the passed inputs
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+        // Validation error messages are stored in pages.inc.messages then is included in the posts.create page ( @include('inc.messages') )
+
+        // Create Post and submit to database.
+        $post = Post::find($id); //edit this because we want to find the id and update that record.
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        //Then Redirect to landing page with a message
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**
