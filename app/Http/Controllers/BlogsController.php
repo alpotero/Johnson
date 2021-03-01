@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Ioc;
 use DB;
 
 class BlogsController extends Controller
@@ -112,9 +113,12 @@ class BlogsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($blog_id)
     {
         //
+        //return $blog_id;
+        $blog = Blog::select()->where('blog_id', $blog_id)->get();
+        return view('pages.blogs.edit')->with('blog', $blog);
     }
 
     /**
@@ -124,9 +128,27 @@ class BlogsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $blog_id)
     {
         //
+        // Request is similar to store.
+        // Validate the passed inputs
+        $this->validate($request, [
+            'summary' => 'required',
+            'testing_status' => 'required',
+            'hidden' => 'required'
+        ]);
+        // Validation error messages are stored in pages.inc.messages then is included in the posts.create page ( @include('inc.messages') )
+
+        // Create Post and submit to database.
+        $blog = Blog::find($blog_id); //edit this because we want to find the id and update that record.
+        $blog->summary = $request->input('summary');
+        $blog->testing_status = $request->input('testing_status');
+        $blog->hidden = $request->input('hidden');
+        $blog->save();
+
+        //Then Redirect to landing page with a message
+        return redirect('/blogs/$blog_id')->with('success', 'Post Updated');
     }
 
     /**

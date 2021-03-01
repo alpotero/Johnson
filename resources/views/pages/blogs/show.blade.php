@@ -22,7 +22,7 @@
                             @if ($blog[0]->summary == "")
                                     No summary yet. 
                             @else
-                                {{$blog[0]->summary}}
+                                {!! $blog[0]->summary !!}
                             @endif
                         </p>
                     </div>
@@ -53,9 +53,7 @@
                                 <dd>{{$blog[0]->testing_status}}</dd>
                             <dt>Other Actions: </dt>
                                 <dd>
-                                    <a href='' class='button dark rounded fg-light' title='Hide/Ignore'><span class='mif-blocked fg-light'></span>&nbsp;Hide/Ignore Blog</a>
-                                    <a href='' class='button bg-orange rounded fg-light' title='Mark as duplicate to...'><span class='mif-files-empty fg-light'></span>&nbsp;Hide/Ignore Blog</a>
-                                    <a href='' class='button alert rounded fg-light' title='Submit for testing'><span class='mif-arrow-right fg-light'></span>&nbsp;Submit for Testing</a>
+                                    <a href='/blogs/{{ $blog[0]->blog_id }}/edit' class='button dark rounded fg-light' title='Hide/Ignore'><span class='mif-pencil fg-light'></span>&nbsp;Edit</a>
                                 </dd>
                         </dl>
                     </div>

@@ -15,6 +15,7 @@ class IocsController extends Controller
     public function index()
     {
         // Return the index page together with data from Blog table from data base order by "date_created" desc
+        return Ioc::all();
         $iocs = Ioc::orderBy('created_at', 'asc')->get();
         return view('pages.iocs.index')->with('iocs', $iocs);
     }

@@ -49,16 +49,8 @@
                 <li><a href="{{ url('/ioc-investigation') }}"><strong>Investigation</strong></a></li>
                 <li><a href="{{ url('/ioc-duplicates') }}"><strong>Duplicate IOCs</strong></a></li>
                 <li><a href="{{ url('/ioc-hidden') }}"><strong>Hidden IOCs</strong></a></li>
-                <li><a href="{{ url('/ioc-details') }}"><strong>IOC Details</strong></a></li>
                 <li><a href="{{ url('/ioc-summary') }}"><strong>Testing Summary</strong></a></li>
                 <li><a href="{{ url('/ioc-publishing') }}"><strong>Publishing</strong></a></li>
-                <li>
-                    <a href="#" class="dropdown-toggle"><strong>Aldrin Tadeo</strong></a>
-                    <ul class="d-menu" data-role="dropdown">
-                        <li class="divider bg-lightGray"></li>
-                        <li><a href="#">Logout</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <div id="particles-js" style="position:fixed; top:0; z-index:-100; height:100%; width:100%; opacity:0.4;"></div>
@@ -74,6 +66,7 @@
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
             CKEDITOR.replace( 'article-ckeditor' );
+            CKEDITOR.replace( 'article-ckeditor-summary' );
         </script>
     </body>
 </html>

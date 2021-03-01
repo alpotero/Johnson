@@ -17,7 +17,7 @@
     ///// PRODUCTION
     //$url = 'http://localhost/'. date("m/d/Y");
     ///// STAGING
-    $url = 'https://pastebin.com/raw/Bx7Qx7Vh';
+    $url = 'https://pastebin.com/raw/JPVJRE9f';
     $file_name = "data/tbl-blog-today.json";
     echo "Downloading IOC file from API...</br>";
     if(file_put_contents( $file_name,file_get_contents($url))) { 

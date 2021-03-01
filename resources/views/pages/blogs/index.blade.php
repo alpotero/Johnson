@@ -28,7 +28,7 @@
                         @foreach ($blogs as $blog)
                             <tr>
                                 <td>
-                                    <a href='' class='button dark mini link cycle' title='Hide/Ignore'><span class='mif-blocked fg-dark'></span></a>
+                                    <a href='' class='button dark mini link cycle mif-blocked fg-dark' title='Hide/Ignore'></a>
                                     <a href='' class='button warning mini link cycle' title='Mark as duplicate'><span class='mif-files-empty fg-dark'></span></a>
                                     <a href='' class='button alert mini link cycle' title='Submit for testing'><span class='mif-arrow-right fg-dark'></span></a>
                                 </td>

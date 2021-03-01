@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "pid": 98,
+    "ioc_type": "File",
+    "ioc": "26af537c457c954dfc667f67f76909fa90889b14cb6736a7678c6eb59cbf951b",
+    "page": 1,
+    "related_blog_id": "f5bfad0d537bd9af9b398fd720db5c46a2ce7d8390afecedf0539621274c1877",
+    "last_modified": null,
+    "created_at": null,
+    "updated_at": null
+  },
+  {
+    "id": 2,
+    "pid": 116,
+    "ioc_type": "File",
+    "ioc": "276baecaef6ead3a6be0c37c7b9c40133ea0386e6a7540e58bce5b08448c3d70",
+    "page": 2,
+    "related_blog_id": "f5bfad0d537bd9af9b398fd720db5c46a2ce7d8390afecedf0539621274c1877,c3c7a41c93167b967e2b9145416d1d9ccebbd04664033f5e0529a2e018216299",
+    "last_modified": null,
+    "created_at": null,
+    "updated_at": null
+  }
+]

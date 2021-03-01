@@ -20,6 +20,11 @@ Route::get('/dashboard-prima', function () {
     return view('crawler.apicrawler');
 });
 
+Route::get('/iocs-prima', function () {
+    //return view('pages.00dashboard');
+    return view('crawler.apicrawler_ioc');
+});
+
 Route::get('/dashboard', function () {
     //return view('pages.00dashboard');
     return view('pages.00dashboard');
