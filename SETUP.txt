@@ -1,0 +1,35 @@
+Setting Up TCSE Eyes...
+
+[System Requirements]
+- System with database that laravel is compatible. See .env-template file for list of supported database systems.
+
+[Setup Steps]
+- Copy-Paste the project on a desired location on the system.
+- Look for .env-template and rename it to .env
+- Open the renamed .env file and put the necessary configuration specially the database information such as username/password.
+- Once done, run the database migration of laravel.
+---> Open terminal/cmd and navigate to the location of tcseeyes project.
+---> Run the migration command: # php artisan migrate
+- Once database is created, paste the crawler files on /resources/views/crawler. Also ensure you update the database credentials of those files.
+- Run the site using the internal artisan tool of laravel.
+
+*****localhost access only*****
+---> # php artisan serve
+*****external access*****
+---> # php artisan serve --host [Desired IP] --port [Desired Port]
+
+
+[Other Notes]
+- Files under /resources/views/crawler/ are responsible for getting data from TCSEEyes API. These are coded natively and will be provided separately as database passwords are hardcoded.
+- Once got, place these files on /resources/views/crawler/
+
+
+[First Time Use]
+- For first time use, database contents need to be populated from the /all url access of TCSEEyes API. To do it, follow the steps below.
+---> Get the crawler files from me.
+---> Place the files on /resources/views/crawler/
+---> For each of the file open it and edit it. Put the necessary database username and password. 
+---> Change the data source to the /all url address of TCSEEyes API. Location is at line 20 of each file.
+---> once done, serve again/rerun the website through artisan.
+---> crawlers are tied on the nav bar of the site. So navigate on each available options on navbar to trigger the crawler.
+- Once done with triggering all the crawlers scripts, change the API access url of TCSEEyes to daily/today so that it doesn't have to crawl all database from API during use.
